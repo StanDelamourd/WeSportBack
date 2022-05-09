@@ -1,12 +1,21 @@
-const express = require('express')
+require('dotenv').config();
+const express = require('express');
 const app = express()
-const port = 8100
+var cors = require('cors');
+var config = require('./test.json') 
+const port = 3000
 
+function init() {
+  app.use(cors());
+  app.listen(port, () => {
+    console.log(`Example app listening at http://localhost:${port}`)
+  })
+}
 app.get('/', (req, res) => {
   
-  res.send('hello world')
+  res.json({data: config, err:null})
 })
 
-app.listen(port, () => {
-  console.log(`Example app listening at http://localhost:${port}`)
-})
+
+
+init();
