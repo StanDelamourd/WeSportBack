@@ -1,5 +1,4 @@
 const express= require('express');
-// const bodyParser = require("body-parser");
 const cors = require('cors');
 const db = require('./models/index.js');
 const Role = db.role;
@@ -35,7 +34,7 @@ db.sequelize.sync({force: true}).then(() => {
       });
       
 app.get("/", (req, res) => {
-    res.json({ message: "Welcome to bezkoder application." });
+    res.json({ message: "Welcome to Wesport." });
 });
 //server
 app.listen(process.env.PORT, () =>{
